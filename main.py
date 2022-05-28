@@ -29,7 +29,7 @@ async def welcome(message: types.Message):
 @dp.message_handler()
 async def answer(message: types.Message):
     if message.text == 'Открыть смену':
-         await message.answer('Отправьте локацию для подтверждения смены 📍', reply_markup=loc)
+         await message.answer('Отправьте локацию для подтверждения смены 📍 ', reply_markup=loc)
     elif message.text == 'Закрыть смену':
          await message.answer('Отправьте локацию для подтверждения смены 📍', reply_markup=loc)
 executor.start_polling(dp)

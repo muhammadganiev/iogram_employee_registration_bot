@@ -1,6 +1,7 @@
 from aiogram import Bot, Dispatcher, executor, types
 from aiogram.types import ReplyKeyboardMarkup, ReplyKeyboardRemove, KeyboardButton
 from requests import request
+import telegram_send
 
 bot = Bot(token='5453501886:AAE49LmQsZ6vZDC-_sg4muhfUH5pKqMVppk')
 dp = Dispatcher(bot)
@@ -20,6 +21,7 @@ async def handle_location(message: types.Message):
     await message.answer(reply, reply_markup=types.ReplyKeyboardRemove())
     await message.answer(' ✅ Смена подтверждена \n 🔓 Не забудьте открыть смену перед работой 😁 \n 🔐 закрыть смену после работы 😁')
     await message.answer('Хорошего рабочего дня 😁, ИззИ любит тебя и ценит ❤️', reply_markup=otmetka)
+    telegram_send.send(messages = [f'{message.from_user.first_name} открыл смену, находиться по адресу']);
 @dp.message_handler(commands = ['start', 'help'])
 async def welcome(message: types.Message):
   await message.reply(f"Ассаламу Алеикум родноой💥 \nДля увеличения качества обслуживания и процветания ИззИ✨ мы разработали автоматизированную систему отметки членов команды ИззИ🧡 \nДанная система несет исключительно деловой характер \nKаждый день вам нужно будет отмечаться перед началом работы и после его окончания, а также отправлять данные о геопозиции для подтверждения вашего присутствия на рабочем месте \n", reply_markup=otmetka)

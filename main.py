@@ -1,11 +1,14 @@
+import os
 from datetime import datetime
 import datetime
 from time import strftime, time
 from aiogram import Bot, Dispatcher, executor, types
 from aiogram.types import ReplyKeyboardMarkup, ReplyKeyboardRemove, KeyboardButton
-bot = Bot(token='5453501886:AAE49LmQsZ6vZDC-_sg4muhfUH5pKqMVppk')
-dp = Dispatcher(bot)
 
+token = os.getenv('TOKEN')
+
+bot = Bot(token= token)
+dp = Dispatcher(bot)
 b1 = KeyboardButton('Открыть смену')
 b2 = KeyboardButton('Закрыть смену')
 b3 = KeyboardButton('Отправить локацию', request_location=True)

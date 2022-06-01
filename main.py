@@ -40,10 +40,10 @@ async def handle_location(message: types.Message):
     #  status_otmetka = status_otmetka_var[0]
     #  status_icon = status_icon_var[0]
       
-      
     await message.answer(reply, reply_markup=types.ReplyKeyboardRemove())
     await message.answer(' ✅ Смена подтверждена \n 🔓 Не забудьте открыть смену перед работой 😁 \n 🔐 закрыть смену после работы 😁')
     await message.answer('Хорошего рабочего дня 😁, ИззИ любит тебя и ценит ❤️', reply_markup=otmetka)
+    await message.answer(f'{message.from_user.id}')
     message = await bot.send_message(
       chat_id=582776432,
       text= f'*Имя: *{message.from_user.first_name}\n----------------------------\n*Фамилия: *{message.from_user.last_name}\n----------------------------\n*Telegram id: *@{message.from_user.username}\n----------------------------\n*{status_otmetka}* смену {status_icon}\n----------------------------\n*Адрес* в момент отметки:',

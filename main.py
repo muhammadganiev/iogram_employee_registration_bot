@@ -4,6 +4,7 @@ import datetime
 from time import strftime, time
 from aiogram import Bot, Dispatcher, executor, types
 from aiogram.types import ReplyKeyboardMarkup, ReplyKeyboardRemove, KeyboardButton
+import sqlite3
 
 token = os.getenv('TOKEN')
 
@@ -35,12 +36,10 @@ async def handle_location(message: types.Message):
     lat = message.location.latitude
     lon = message.location.longitude
     reply = "latitude:  {}\nlongitude: {}".format(lat, lon)
-    if seychas < utro:
-      await message.answer(f'{utro - seychas}')
-      status_otmetka = status_otmetka_var[2]
-      status_icon = status_icon_var[2]
-    elif seychas > utro:
-      await message.answer(f'{seychas - utro}')
+    #if seychas >= utro and seychas < :
+    #  status_otmetka = status_otmetka_var[0]
+    #  status_icon = status_icon_var[0]
+      
       
     await message.answer(reply, reply_markup=types.ReplyKeyboardRemove())
     await message.answer(' ✅ Смена подтверждена \n 🔓 Не забудьте открыть смену перед работой 😁 \n 🔐 закрыть смену после работы 😁')
